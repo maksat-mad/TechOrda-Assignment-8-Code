@@ -20,17 +20,17 @@
     </div>
 
     <div *ngIf="openComments">
-      <p *ngIf="loading && !(errorService.error$ | async)"
+      <p *ngIf="loading && !errorService.errorMessage"
          class="text-center text-xl font-bold pb-20">
         Loading...
       </p>
 
-      <p *ngIf="errorService.error$ | async as error"
+      <p *ngIf="errorService.errorMessage"
          class="text-center text-xl font-bold text-red-600 pb-20">
-        {{ error }}
+        {{ errorService.errorMessage }}
       </p>
 
-      <p *ngIf="!loading && !(errorService.error$ | async) && comments.length <= 0"
+      <p *ngIf="!loading && !errorService.errorMessage && comments.length <= 0"
          class="text-center text-xl font-bold pb-20">
         No items found
       </p>

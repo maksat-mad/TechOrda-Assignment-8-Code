@@ -21,7 +21,6 @@ export class PostService {
         fromObject: {_limit: 10}
       })
     }).pipe(
-      delay(2000),
       retry(2),
       tap(posts => this.posts = posts),
       catchError(this.errorHandler.bind(this))

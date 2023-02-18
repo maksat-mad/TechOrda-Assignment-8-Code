@@ -18,7 +18,6 @@ export class CommentService {
 
   getByPostId(postId: number): Observable<PostComment[]> {
     return this.http.get<PostComment[]>('https://jsonplaceholder.typicode.com/comments?postId=' + postId).pipe(
-      delay(2000),
       retry(2),
       tap(comments => this.comments = comments),
       catchError(this.errorHandler.bind(this))

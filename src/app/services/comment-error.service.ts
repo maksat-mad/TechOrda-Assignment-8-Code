@@ -6,9 +6,9 @@ import {Subject} from "rxjs";
 })
 export class CommentErrorService {
 
-  error$ = new Subject<string>();
+  errorMessage: string = '';
 
   handle(message: string) {
-    this.error$.next(message);
+    this.errorMessage = message;
   }
 }
